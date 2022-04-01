@@ -1,5 +1,4 @@
 import 'dart:html';
-
 import 'package:flutter/material.dart';
 
 class home extends StatelessWidget {
@@ -13,7 +12,7 @@ class home extends StatelessWidget {
       backgroundColor: Colors.grey[50],
       elevation: 0,
       centerTitle: true,
-      toolbarHeight: sizeHeight * 0.1,
+      toolbarHeight: sizeHeight * 0.08,
       title: Image(
         image: AssetImage("assets/images/logo.png"),
         width: sizeWidth * 0.5,
@@ -48,108 +47,19 @@ class home extends StatelessWidget {
     final bodyHeight = sizeHeight -
         myAppBar.preferredSize.height -
         MediaQuery.of(context).padding.top;
-
-    final List<Container> outletList = [
-      Container(
-        child: Text(
-          "Malang",
-          style: TextStyle(
-            fontFamily: "Poppins",
-            fontWeight: FontWeight.bold,
-            color: Color(0xff3E4957),
-          ),
-        ),
-      ),
-      Container(
-        child: Text(
-          "Surabaya",
-          style: TextStyle(
-            fontFamily: "Poppins",
-            fontWeight: FontWeight.bold,
-            color: Color(0xff3E4957),
-          ),
-        ),
-      ),
-      Container(
-        child: Text(
-          "Yogyakarta",
-          style: TextStyle(
-            fontFamily: "Poppins",
-            fontWeight: FontWeight.bold,
-            color: Color(0xff3E4957),
-          ),
-        ),
-      ),
-      Container(
-        child: Text(
-          "Semarang",
-          style: TextStyle(
-            fontFamily: "Poppins",
-            fontWeight: FontWeight.bold,
-            color: Color(0xff3E4957),
-          ),
-        ),
-      ),
-      Container(
-        child: Text(
-          "Solo",
-          style: TextStyle(
-            fontFamily: "Poppins",
-            fontWeight: FontWeight.bold,
-            color: Color(0xff3E4957),
-          ),
-        ),
-      ),
-      Container(
-        child: Text(
-          "Bandung",
-          style: TextStyle(
-            fontFamily: "Poppins",
-            fontWeight: FontWeight.bold,
-            color: Color(0xff3E4957),
-          ),
-        ),
-      ),
-      Container(
-        child: Text(
-          "Cirebon",
-          style: TextStyle(
-            fontFamily: "Poppins",
-            fontWeight: FontWeight.bold,
-            color: Color(0xff3E4957),
-          ),
-        ),
-      ),
-      Container(
-        child: Text(
-          "Bali",
-          style: TextStyle(
-            fontFamily: "Poppins",
-            fontWeight: FontWeight.bold,
-            color: Color(0xff3E4957),
-          ),
-        ),
-      ),
-      Container(
-        child: Text(
-          "Jember",
-          style: TextStyle(
-            fontFamily: "Poppins",
-            fontWeight: FontWeight.bold,
-            color: Color(0xff3E4957),
-          ),
-        ),
-      ),
-    ];
     return Scaffold(
       appBar: myAppBar,
       body: Container(
-        height: bodyHeight * 0.8,
+        height: bodyHeight,
+        width: sizeWidth,
         padding:
             EdgeInsets.only(left: sizeWidth * 0.05, right: sizeWidth * 0.05),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            SizedBox(
+              height: bodyHeight * 0.02,
+            ),
             Container(
               child: Text(
                 "Hello Mate",
@@ -219,20 +129,109 @@ class home extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: bodyHeight * 0.02,
+              height: bodyHeight * 0.03,
             ),
-            Container(
-              child: Expanded(
-                child: GridView(
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    childAspectRatio: 1 / 0.4,
-                    crossAxisCount: 3,
-                    crossAxisSpacing: 3,
-                    mainAxisSpacing: 3,
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Container(
+                  child: Text(
+                    "Malang",
+                    style: TextStyle(
+                        color: Color(0xff3E4957),
+                        fontFamily: "Poppins",
+                        fontWeight: FontWeight.bold),
                   ),
-                  children: outletList,
                 ),
-              ),
+                Container(
+                  child: Text(
+                    "Semarang",
+                    style: TextStyle(
+                        color: Color(0xff3E4957),
+                        fontFamily: "Poppins",
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
+                Container(
+                  child: Text(
+                    "Cirebon",
+                    style: TextStyle(
+                        color: Color(0xff3E4957),
+                        fontFamily: "Poppins",
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: bodyHeight * 0.03,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Container(
+                  child: Text(
+                    "Surabaya",
+                    style: TextStyle(
+                        color: Color(0xff3E4957),
+                        fontFamily: "Poppins",
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
+                Container(
+                  child: Text(
+                    "Solo",
+                    style: TextStyle(
+                        color: Color(0xff3E4957),
+                        fontFamily: "Poppins",
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
+                Container(
+                  child: Text(
+                    "Bali",
+                    style: TextStyle(
+                        color: Color(0xff3E4957),
+                        fontFamily: "Poppins",
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: bodyHeight * 0.03,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Container(
+                  child: Text(
+                    "Yogyakarta",
+                    style: TextStyle(
+                        color: Color(0xff3E4957),
+                        fontFamily: "Poppins",
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
+                Container(
+                  child: Text(
+                    "Bandung",
+                    style: TextStyle(
+                        color: Color(0xff3E4957),
+                        fontFamily: "Poppins",
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
+                Container(
+                  child: Text(
+                    "Jember",
+                    style: TextStyle(
+                        color: Color(0xff3E4957),
+                        fontFamily: "Poppins",
+                        fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ],
             ),
             SizedBox(
               height: bodyHeight * 0.02,
@@ -253,7 +252,7 @@ class home extends StatelessWidget {
                   color: Color(0xff00B3D8),
                 ),
                 SizedBox(
-                  width: sizeWidth * 0.5,
+                  width: sizeWidth * 0.44,
                 ),
                 TextButton(
                     onPressed: () {},
@@ -333,6 +332,40 @@ class home extends StatelessWidget {
                   ],
                 ),
               ),
+            ),
+          ],
+        ),
+      ),
+      bottomSheet: Container(
+        padding: EdgeInsets.only(bottom: 20),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          crossAxisAlignment: CrossAxisAlignment.end,
+          children: [
+            Icon(
+              Icons.home,
+              color: Color(0xff00B3D8),
+              size: 30,
+            ),
+            Icon(
+              Icons.schedule_outlined,
+              color: Colors.grey,
+              size: 30,
+            ),
+            Icon(
+              Icons.description_outlined,
+              color: Colors.grey,
+              size: 30,
+            ),
+            Icon(
+              Icons.bookmark_added_outlined,
+              color: Colors.grey,
+              size: 30,
+            ),
+            Icon(
+              Icons.person_outline,
+              color: Colors.grey,
+              size: 30,
             ),
           ],
         ),
