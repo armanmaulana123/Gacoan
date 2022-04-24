@@ -194,7 +194,7 @@ class registerPage extends StatelessWidget {
                     children: [
                       Container(
                         child: Text(
-                          "Belum Memiliki Akun?",
+                          "Sudah Memiliki Akun?",
                           style: TextStyle(
                             color: Colors.white,
                             fontFamily: "Poppins",

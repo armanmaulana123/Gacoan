@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:gacoan/home.dart';
+import 'package:gacoan/bottom_nav.dart';
 import 'package:gacoan/register_page.dart';
 
 class loginPage extends StatelessWidget {
+  TextEditingController _emailController = TextEditingController();
+  TextEditingController _passwordController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     final sizeHeight = MediaQuery.of(context).size.height;
@@ -64,6 +67,8 @@ class loginPage extends StatelessWidget {
                   ),
                   Container(
                     child: TextField(
+                      controller: _emailController,
+                      keyboardType: TextInputType.emailAddress,
                       style: TextStyle(height: sizeHeight * 0.0005),
                       showCursor: false,
                       decoration: InputDecoration(
@@ -93,6 +98,8 @@ class loginPage extends StatelessWidget {
                   ),
                   Container(
                     child: TextField(
+                      controller: _passwordController,
+                      keyboardType: TextInputType.visiblePassword,
                       style: TextStyle(height: sizeHeight * 0.0005),
                       showCursor: false,
                       decoration: InputDecoration(
@@ -115,12 +122,18 @@ class loginPage extends StatelessWidget {
                   ),
                   Container(
                     child: ElevatedButton(
-                      onPressed: () {
-                        Navigator.pushReplacement(context,
-                            MaterialPageRoute(builder: (context) {
-                          return home();
-                        }));
-                      },
+                      onPressed: () => submit(
+                        context,
+                        _emailController.text,
+                        _passwordController.text,
+                      ),
+                      // {
+                      // Navigator.pushReplacement(context,
+                      //     MaterialPageRoute(builder: (context) {
+                      //   return home();
+                      // }));
+
+                      // },
                       child: Text(
                         "Masuk",
                         style: TextStyle(color: Color(0xff00B3D8)),
@@ -174,5 +187,37 @@ class loginPage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void submit(BuildContext context, String email, String password) {
+    if (email.isEmpty || password.isEmpty) {
+      final snackBar = SnackBar(
+        duration: const Duration(seconds: 5),
+        content: Text("Email dan Password harus diisi"),
+        backgroundColor: Colors.red,
+      );
+
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+      return;
+    }
+
+    AlertDialog alert = AlertDialog(
+      title: Text("Login Berhasil"),
+      content: Container(
+        child: Text("Selamat Anda Berhasil Login"),
+      ),
+      actions: [
+        TextButton(
+            child: Text("Ok"),
+            onPressed: () {
+              Navigator.pushReplacement(context,
+                  MaterialPageRoute(builder: (context) {
+                return BottomNav();
+              }));
+            })
+      ],
+    );
+
+    showDialog(context: context, builder: (context) => alert);
   }
 }

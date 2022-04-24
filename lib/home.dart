@@ -23,7 +23,7 @@ class home extends StatelessWidget {
           width: sizeWidth * 0.1,
           height: sizeHeight * 0.1,
           child: CircleAvatar(
-            backgroundImage: AssetImage("assets/images/baphomet.jpg"),
+            backgroundImage: AssetImage("assets/images/lluuu.jpg"),
           ),
         ),
       ),
@@ -62,7 +62,7 @@ class home extends StatelessWidget {
             ),
             Container(
               child: Text(
-                "Hello Mate",
+                "Hello Lulu",
                 style: TextStyle(
                     color: Color(0xffEC008D),
                     fontSize: 18,
@@ -336,40 +336,40 @@ class home extends StatelessWidget {
           ],
         ),
       ),
-      bottomSheet: Container(
-        padding: EdgeInsets.only(bottom: 20),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          crossAxisAlignment: CrossAxisAlignment.end,
-          children: [
-            Icon(
-              Icons.home,
-              color: Color(0xff00B3D8),
-              size: 30,
-            ),
-            Icon(
-              Icons.schedule_outlined,
-              color: Colors.grey,
-              size: 30,
-            ),
-            Icon(
-              Icons.description_outlined,
-              color: Colors.grey,
-              size: 30,
-            ),
-            Icon(
-              Icons.bookmark_added_outlined,
-              color: Colors.grey,
-              size: 30,
-            ),
-            Icon(
-              Icons.person_outline,
-              color: Colors.grey,
-              size: 30,
-            ),
-          ],
-        ),
-      ),
+      // bottomSheet: Container(
+      //   padding: EdgeInsets.only(bottom: 20),
+      //   child: Row(
+      //     mainAxisAlignment: MainAxisAlignment.spaceAround,
+      //     crossAxisAlignment: CrossAxisAlignment.end,
+      //     children: [
+      //       Icon(
+      //         Icons.home,
+      //         color: Color(0xff00B3D8),
+      //         size: 30,
+      //       ),
+      //       Icon(
+      //         Icons.schedule_outlined,
+      //         color: Colors.grey,
+      //         size: 30,
+      //       ),
+      //       Icon(
+      //         Icons.description_outlined,
+      //         color: Colors.grey,
+      //         size: 30,
+      //       ),
+      //       Icon(
+      //         Icons.bookmark_added_outlined,
+      //         color: Colors.grey,
+      //         size: 30,
+      //       ),
+      //       Icon(
+      //         Icons.person_outline,
+      //         color: Colors.grey,
+      //         size: 30,
+      //       ),
+      //     ],
+      //   ),
+      // ),
     );
   }
 }

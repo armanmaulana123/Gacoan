@@ -63,6 +63,7 @@ flutter:
     - assets/images/baphomet.jpg
     - assets/images/logo.png
     - assets/images/mie_iblis.jpg
+    - assets/images/lluuu.jpg
     # - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -79,7 +80,7 @@ flutter:
   fonts:
     - family: Poppins
       fonts:
-        - asset: assets\fonts\Poppins-Regular.ttf
+        - asset: assets/fonts/Poppins-Regular.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
