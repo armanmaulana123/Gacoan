@@ -1,3 +1,4 @@
+import 'dart:html';
 import 'package:flutter/material.dart';
 import 'package:gacoan/login_page.dart';
 import 'package:gacoan/register_page.dart';
@@ -50,7 +51,7 @@ class firstPage extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return loginPage();
+                    return LoginPage();
                   }));
                 },
                 child: Text("Login"),
@@ -70,7 +71,7 @@ class firstPage extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: () {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return registerPage();
+                    return RegisterPage();
                   }));
                 },
                 child: Text(

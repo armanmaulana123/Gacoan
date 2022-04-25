@@ -78,7 +78,7 @@ class _profileState extends State<profile> {
                           ]),
                     ),
                     SizedBox(
-                      width: sizeWidth * 0.2,
+                      width: sizeWidth * 0.15,
                     ),
                     Container(
                         child: Icon(
@@ -123,7 +123,7 @@ class _profileState extends State<profile> {
                                     style: TextStyle(
                                         fontFamily: "Poppins", fontSize: 16)),
                                 SizedBox(
-                                  width: sizeWidth * 0.52,
+                                  width: sizeWidth * 0.47,
                                 ),
                                 Text(">",
                                     style: TextStyle(
@@ -135,7 +135,7 @@ class _profileState extends State<profile> {
                             ),
                           ),
                           SizedBox(
-                            width: sizeWidth * 0.7,
+                            width: sizeWidth * 0.65,
                             height: 1,
                             child: Container(
                               color: Colors.grey,
@@ -169,7 +169,7 @@ class _profileState extends State<profile> {
                                     style: TextStyle(
                                         fontFamily: "Poppins", fontSize: 16)),
                                 SizedBox(
-                                  width: sizeWidth * 0.54,
+                                  width: sizeWidth * 0.49,
                                 ),
                                 Text(">",
                                     style: TextStyle(
@@ -181,7 +181,7 @@ class _profileState extends State<profile> {
                             ),
                           ),
                           SizedBox(
-                            width: sizeWidth * 0.7,
+                            width: sizeWidth * 0.65,
                             height: 1,
                             child: Container(
                               color: Colors.grey,
@@ -215,7 +215,7 @@ class _profileState extends State<profile> {
                                     style: TextStyle(
                                         fontFamily: "Poppins", fontSize: 16)),
                                 SizedBox(
-                                  width: sizeWidth * 0.43,
+                                  width: sizeWidth * 0.381,
                                 ),
                                 Text(">",
                                     style: TextStyle(
@@ -227,7 +227,7 @@ class _profileState extends State<profile> {
                             ),
                           ),
                           SizedBox(
-                            width: sizeWidth * 0.7,
+                            width: sizeWidth * 0.65,
                             height: 1,
                             child: Container(
                               color: Colors.grey,
@@ -261,7 +261,7 @@ class _profileState extends State<profile> {
                                     style: TextStyle(
                                         fontFamily: "Poppins", fontSize: 16)),
                                 SizedBox(
-                                  width: sizeWidth * 0.515,
+                                  width: sizeWidth * 0.467,
                                 ),
                                 Text(">",
                                     style: TextStyle(
@@ -273,7 +273,7 @@ class _profileState extends State<profile> {
                             ),
                           ),
                           SizedBox(
-                            width: sizeWidth * 0.7,
+                            width: sizeWidth * 0.65,
                             height: 1,
                             child: Container(
                               color: Colors.grey,
@@ -307,7 +307,7 @@ class _profileState extends State<profile> {
                                     style: TextStyle(
                                         fontFamily: "Poppins", fontSize: 16)),
                                 SizedBox(
-                                  width: sizeWidth * 0.548,
+                                  width: sizeWidth * 0.505,
                                 ),
                                 Text(">",
                                     style: TextStyle(
@@ -319,7 +319,7 @@ class _profileState extends State<profile> {
                             ),
                           ),
                           SizedBox(
-                            width: sizeWidth * 0.7,
+                            width: sizeWidth * 0.65,
                             height: 1,
                             child: Container(
                               color: Colors.grey,
@@ -365,7 +365,7 @@ class _profileState extends State<profile> {
                                     style: TextStyle(
                                         fontFamily: "Poppins", fontSize: 16)),
                                 SizedBox(
-                                  width: sizeWidth * 0.345,
+                                  width: sizeWidth * 0.3,
                                 ),
                                 Text(">",
                                     style: TextStyle(
@@ -377,7 +377,7 @@ class _profileState extends State<profile> {
                             ),
                           ),
                           SizedBox(
-                            width: sizeWidth * 0.7,
+                            width: sizeWidth * 0.65,
                             height: 1,
                             child: Container(
                               color: Colors.grey,
@@ -411,7 +411,7 @@ class _profileState extends State<profile> {
                                     style: TextStyle(
                                         fontFamily: "Poppins", fontSize: 16)),
                                 SizedBox(
-                                  width: sizeWidth * 0.485,
+                                  width: sizeWidth * 0.44,
                                 ),
                                 Text(">",
                                     style: TextStyle(
@@ -423,7 +423,7 @@ class _profileState extends State<profile> {
                             ),
                           ),
                           SizedBox(
-                            width: sizeWidth * 0.7,
+                            width: sizeWidth * 0.65,
                             height: 1,
                             child: Container(
                               color: Colors.grey,

@@ -1,8 +1,15 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:gacoan/bottom_nav.dart';
 import 'package:gacoan/register_page.dart';
 
-class loginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
+  @override
+  _LoginPageState createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
 
@@ -166,7 +173,7 @@ class loginPage extends StatelessWidget {
                           onPressed: () {
                             Navigator.push(context,
                                 MaterialPageRoute(builder: ((context) {
-                              return registerPage();
+                              return RegisterPage();
                             })));
                           },
                           child: Text(

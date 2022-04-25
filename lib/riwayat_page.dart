@@ -1,8 +1,9 @@
 import 'dart:html';
 import 'package:flutter/material.dart';
-import 'package:gacoan/home.dart';
 
 class riwayat extends StatelessWidget {
+  late DateTime _dateTime;
+
   @override
   Widget build(BuildContext context) {
     final sizeHeight = MediaQuery.of(context).size.height;
@@ -41,8 +42,9 @@ class riwayat extends StatelessWidget {
                 ),
               ),
               Container(
+                width: sizeWidth * 0.87,
                 alignment: Alignment.centerLeft,
-                margin: EdgeInsets.only(top: 20, left: 35, bottom: 45),
+                margin: EdgeInsets.only(top: 20, bottom: 45),
                 child: Row(
                   children: [
                     Text(
@@ -61,6 +63,32 @@ class riwayat extends StatelessWidget {
                           fontFamily: "Poppins",
                           color: Color(0xffb1b1b1),
                           fontSize: 18),
+                    ),
+                    SizedBox(
+                      width: sizeWidth * 0.05,
+                    ),
+                    Container(
+                      child: TextButton(
+                        onPressed: () {
+                          showDatePicker(
+                                  context: context,
+                                  initialDate: DateTime.now(),
+                                  firstDate: DateTime(2001),
+                                  lastDate: DateTime(2222))
+                              .then((date) {
+                            setState(() {
+                              _dateTime = date!;
+                            });
+                          });
+                        },
+                        child: Text(
+                          "Pilih Tanggal",
+                          style: TextStyle(
+                              fontFamily: "Poppins",
+                              color: Colors.black,
+                              fontSize: 18),
+                        ),
+                      ),
                     )
                   ],
                 ),
@@ -87,4 +115,6 @@ class riwayat extends StatelessWidget {
           ),
         ));
   }
+
+  void setState(Null Function() param0) {}
 }

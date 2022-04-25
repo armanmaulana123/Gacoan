@@ -3,7 +3,12 @@ import 'dart:html';
 import 'package:flutter/material.dart';
 import 'package:gacoan/login_page.dart';
 
-class registerPage extends StatelessWidget {
+class RegisterPage extends StatefulWidget {
+  @override
+  _RegisterPageState createState() => _RegisterPageState();
+}
+
+class _RegisterPageState extends State<RegisterPage> {
   @override
   Widget build(BuildContext context) {
     final sizeHeight = MediaQuery.of(context).size.height;
@@ -206,7 +211,7 @@ class registerPage extends StatelessWidget {
                           onPressed: () {
                             Navigator.push(context,
                                 MaterialPageRoute(builder: ((context) {
-                              return loginPage();
+                              return LoginPage();
                             })));
                           },
                           child: Text(

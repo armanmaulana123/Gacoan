@@ -1,6 +1,7 @@
+import 'dart:html';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:gacoan/login_page.dart';
+import 'package:gacoan/first_page.dart';
 
 void main() {
   return runApp(myApp());
@@ -11,7 +12,7 @@ class myApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: loginPage(),
+      home: firstPage(),
     );
   }
 }
