@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:gacoan/editProfile_page.dart';
+import 'package:gacoan/login_page.dart';
 
 class profile extends StatefulWidget {
   @override
@@ -12,12 +14,15 @@ class _profileState extends State<profile> {
     final sizeWidth = MediaQuery.of(context).size.width;
     return Scaffold(
         appBar: AppBar(
-          title: Text(
-            "Profil Saya",
-            style: TextStyle(
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-                fontFamily: "Poppins"),
+          automaticallyImplyLeading: false,
+          title: Center(
+            child: Text(
+              "Profil Saya",
+              style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: "Poppins"),
+            ),
           ),
           backgroundColor: Colors.white,
         ),
@@ -32,19 +37,21 @@ class _profileState extends State<profile> {
                     color: Color(0xffe1e1e1),
                   )),
               Container(
-                width: sizeWidth * 0.8,
-                margin: const EdgeInsets.only(top: 10),
+                width: sizeWidth * 0.85,
                 child: Row(
                   children: [
                     Container(
-                      width: sizeWidth * 0.15,
-                      height: sizeHeight * 0.15,
+                      width: sizeWidth * 0.2,
+                      height: sizeHeight * 0.2,
                       child: CircleAvatar(
-                        backgroundImage: AssetImage("assets/images/lluuu.jpg"),
+                        child: ClipOval(
+                          child: Image.asset("assets/images/lluuu.jpg"),
+                        ),
                       ),
                     ),
                     Container(
-                      margin: const EdgeInsets.only(left: 35),
+                      width: sizeWidth * 0.5,
+                      margin: const EdgeInsets.only(left: 25),
                       child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
@@ -77,21 +84,28 @@ class _profileState extends State<profile> {
                             )
                           ]),
                     ),
-                    SizedBox(
-                      width: sizeWidth * 0.15,
-                    ),
                     Container(
+                      width: sizeWidth * 0.05,
+                      child: InkWell(
                         child: Icon(
-                      Icons.edit,
-                      size: 30,
-                      color: Color(0xff00B3D8),
-                    )),
+                          Icons.edit,
+                          size: 30,
+                          color: Color(0xff00B3D8),
+                        ),
+                        onTap: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: ((context) {
+                            return editProfile();
+                          })));
+                        },
+                      ),
+                    ),
                   ],
                 ),
               ),
               Container(
-                width: sizeWidth * 0.8,
-                margin: EdgeInsets.only(top: 20),
+                width: sizeWidth * 0.85,
+                margin: EdgeInsets.only(top: 5),
                 child: Text(
                   "Akun",
                   style: TextStyle(
@@ -102,7 +116,7 @@ class _profileState extends State<profile> {
                 ),
               ),
               Container(
-                width: sizeWidth * 0.8,
+                width: sizeWidth * 0.85,
                 margin: EdgeInsets.only(top: 15),
                 child: Row(
                   children: [
@@ -112,6 +126,7 @@ class _profileState extends State<profile> {
                       color: Colors.grey,
                     ),
                     Container(
+                      width: sizeWidth * 0.7,
                       margin: EdgeInsets.only(left: 15),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -119,23 +134,29 @@ class _profileState extends State<profile> {
                           Container(
                             child: Row(
                               children: [
-                                Text("Pesanan",
-                                    style: TextStyle(
-                                        fontFamily: "Poppins", fontSize: 16)),
-                                SizedBox(
-                                  width: sizeWidth * 0.47,
+                                Container(
+                                  width: sizeWidth * 0.6,
+                                  child: Text("Pesanan",
+                                      style: TextStyle(
+                                          fontFamily: "Poppins", fontSize: 16)),
                                 ),
-                                Text(">",
+                                Container(
+                                  width: sizeWidth * 0.1,
+                                  child: Text(
+                                    ">",
                                     style: TextStyle(
                                       fontFamily: "Poppins",
                                       fontSize: 30,
                                       color: Colors.grey,
-                                    ))
+                                    ),
+                                    textAlign: TextAlign.right,
+                                  ),
+                                )
                               ],
                             ),
                           ),
                           SizedBox(
-                            width: sizeWidth * 0.65,
+                            width: sizeWidth * 0.7,
                             height: 1,
                             child: Container(
                               color: Colors.grey,
@@ -148,7 +169,7 @@ class _profileState extends State<profile> {
                 ),
               ),
               Container(
-                width: sizeWidth * 0.8,
+                width: sizeWidth * 0.85,
                 margin: EdgeInsets.only(top: 10),
                 child: Row(
                   children: [
@@ -165,23 +186,27 @@ class _profileState extends State<profile> {
                           Container(
                             child: Row(
                               children: [
-                                Text("Alamat",
-                                    style: TextStyle(
-                                        fontFamily: "Poppins", fontSize: 16)),
-                                SizedBox(
-                                  width: sizeWidth * 0.49,
+                                Container(
+                                  width: sizeWidth * 0.6,
+                                  child: Text("Alamat",
+                                      style: TextStyle(
+                                          fontFamily: "Poppins", fontSize: 16)),
                                 ),
-                                Text(">",
-                                    style: TextStyle(
-                                      fontFamily: "Poppins",
-                                      fontSize: 30,
-                                      color: Colors.grey,
-                                    ))
+                                Container(
+                                  width: sizeWidth * 0.1,
+                                  child: Text(">",
+                                      style: TextStyle(
+                                        fontFamily: "Poppins",
+                                        fontSize: 30,
+                                        color: Colors.grey,
+                                      ),
+                                      textAlign: TextAlign.right),
+                                )
                               ],
                             ),
                           ),
                           SizedBox(
-                            width: sizeWidth * 0.65,
+                            width: sizeWidth * 0.7,
                             height: 1,
                             child: Container(
                               color: Colors.grey,
@@ -194,7 +219,7 @@ class _profileState extends State<profile> {
                 ),
               ),
               Container(
-                width: sizeWidth * 0.8,
+                width: sizeWidth * 0.85,
                 margin: EdgeInsets.only(top: 10),
                 child: Row(
                   children: [
@@ -211,23 +236,29 @@ class _profileState extends State<profile> {
                           Container(
                             child: Row(
                               children: [
-                                Text("Voucher Saya",
-                                    style: TextStyle(
-                                        fontFamily: "Poppins", fontSize: 16)),
-                                SizedBox(
-                                  width: sizeWidth * 0.381,
+                                Container(
+                                  width: sizeWidth * 0.6,
+                                  child: Text("Voucher Saya",
+                                      style: TextStyle(
+                                          fontFamily: "Poppins", fontSize: 16)),
                                 ),
-                                Text(">",
+                                Container(
+                                  width: sizeWidth * 0.1,
+                                  child: Text(
+                                    ">",
                                     style: TextStyle(
                                       fontFamily: "Poppins",
                                       fontSize: 30,
                                       color: Colors.grey,
-                                    ))
+                                    ),
+                                    textAlign: TextAlign.right,
+                                  ),
+                                )
                               ],
                             ),
                           ),
                           SizedBox(
-                            width: sizeWidth * 0.65,
+                            width: sizeWidth * 0.7,
                             height: 1,
                             child: Container(
                               color: Colors.grey,
@@ -240,7 +271,7 @@ class _profileState extends State<profile> {
                 ),
               ),
               Container(
-                width: sizeWidth * 0.8,
+                width: sizeWidth * 0.85,
                 margin: EdgeInsets.only(top: 10),
                 child: Row(
                   children: [
@@ -257,23 +288,29 @@ class _profileState extends State<profile> {
                           Container(
                             child: Row(
                               children: [
-                                Text("Bantuan",
-                                    style: TextStyle(
-                                        fontFamily: "Poppins", fontSize: 16)),
-                                SizedBox(
-                                  width: sizeWidth * 0.467,
+                                Container(
+                                  width: sizeWidth * 0.6,
+                                  child: Text("Bantuan",
+                                      style: TextStyle(
+                                          fontFamily: "Poppins", fontSize: 16)),
                                 ),
-                                Text(">",
+                                Container(
+                                  width: sizeWidth * 0.1,
+                                  child: Text(
+                                    ">",
                                     style: TextStyle(
                                       fontFamily: "Poppins",
                                       fontSize: 30,
                                       color: Colors.grey,
-                                    ))
+                                    ),
+                                    textAlign: TextAlign.right,
+                                  ),
+                                )
                               ],
                             ),
                           ),
                           SizedBox(
-                            width: sizeWidth * 0.65,
+                            width: sizeWidth * 0.7,
                             height: 1,
                             child: Container(
                               color: Colors.grey,
@@ -286,7 +323,7 @@ class _profileState extends State<profile> {
                 ),
               ),
               Container(
-                width: sizeWidth * 0.8,
+                width: sizeWidth * 0.85,
                 margin: EdgeInsets.only(top: 10),
                 child: Row(
                   children: [
@@ -300,26 +337,37 @@ class _profileState extends State<profile> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Container(
-                            child: Row(
-                              children: [
-                                Text("Keluar",
-                                    style: TextStyle(
-                                        fontFamily: "Poppins", fontSize: 16)),
-                                SizedBox(
-                                  width: sizeWidth * 0.505,
-                                ),
-                                Text(">",
-                                    style: TextStyle(
-                                      fontFamily: "Poppins",
-                                      fontSize: 30,
-                                      color: Colors.grey,
-                                    ))
-                              ],
-                            ),
-                          ),
+                          InkWell(
+                              onTap: () {
+                                Navigator.push(context,
+                                    MaterialPageRoute(builder: ((context) {
+                                  return LoginPage();
+                                })));
+                              },
+                              child: Container(
+                                  child: Row(
+                                children: [
+                                  Container(
+                                    width: sizeWidth * 0.6,
+                                    child: Text("Keluar",
+                                        style: TextStyle(
+                                            fontFamily: "Poppins",
+                                            fontSize: 16)),
+                                  ),
+                                  Container(
+                                    width: sizeWidth * 0.1,
+                                    child: Text(">",
+                                        style: TextStyle(
+                                          fontFamily: "Poppins",
+                                          fontSize: 30,
+                                          color: Colors.grey,
+                                        ),
+                                        textAlign: TextAlign.right),
+                                  )
+                                ],
+                              ))),
                           SizedBox(
-                            width: sizeWidth * 0.65,
+                            width: sizeWidth * 0.7,
                             height: 1,
                             child: Container(
                               color: Colors.grey,
@@ -332,8 +380,8 @@ class _profileState extends State<profile> {
                 ),
               ),
               Container(
-                width: sizeWidth * 0.8,
-                margin: EdgeInsets.only(top: 25),
+                width: sizeWidth * 0.85,
+                margin: EdgeInsets.only(top: 35),
                 child: Text(
                   "Info Lainnya",
                   style: TextStyle(
@@ -344,7 +392,7 @@ class _profileState extends State<profile> {
                 ),
               ),
               Container(
-                width: sizeWidth * 0.8,
+                width: sizeWidth * 0.85,
                 margin: EdgeInsets.only(top: 15),
                 child: Row(
                   children: [
@@ -361,23 +409,27 @@ class _profileState extends State<profile> {
                           Container(
                             child: Row(
                               children: [
-                                Text("Cara Pembayaran",
-                                    style: TextStyle(
-                                        fontFamily: "Poppins", fontSize: 16)),
-                                SizedBox(
-                                  width: sizeWidth * 0.3,
+                                Container(
+                                  width: sizeWidth * 0.6,
+                                  child: Text("Cara Pembayaran",
+                                      style: TextStyle(
+                                          fontFamily: "Poppins", fontSize: 16)),
                                 ),
-                                Text(">",
-                                    style: TextStyle(
-                                      fontFamily: "Poppins",
-                                      fontSize: 30,
-                                      color: Colors.grey,
-                                    ))
+                                Container(
+                                  width: sizeWidth * 0.1,
+                                  child: Text(">",
+                                      style: TextStyle(
+                                        fontFamily: "Poppins",
+                                        fontSize: 30,
+                                        color: Colors.grey,
+                                      ),
+                                      textAlign: TextAlign.right),
+                                )
                               ],
                             ),
                           ),
                           SizedBox(
-                            width: sizeWidth * 0.65,
+                            width: sizeWidth * 0.7,
                             height: 1,
                             child: Container(
                               color: Colors.grey,
@@ -390,7 +442,7 @@ class _profileState extends State<profile> {
                 ),
               ),
               Container(
-                width: sizeWidth * 0.8,
+                width: sizeWidth * 0.85,
                 margin: EdgeInsets.only(top: 15),
                 child: Row(
                   children: [
@@ -407,23 +459,27 @@ class _profileState extends State<profile> {
                           Container(
                             child: Row(
                               children: [
-                                Text("Nilai Kami",
-                                    style: TextStyle(
-                                        fontFamily: "Poppins", fontSize: 16)),
-                                SizedBox(
-                                  width: sizeWidth * 0.44,
+                                Container(
+                                  width: sizeWidth * 0.6,
+                                  child: Text("Nilai Kami",
+                                      style: TextStyle(
+                                          fontFamily: "Poppins", fontSize: 16)),
                                 ),
-                                Text(">",
-                                    style: TextStyle(
-                                      fontFamily: "Poppins",
-                                      fontSize: 30,
-                                      color: Colors.grey,
-                                    ))
+                                Container(
+                                  width: sizeWidth * 0.1,
+                                  child: Text(">",
+                                      style: TextStyle(
+                                        fontFamily: "Poppins",
+                                        fontSize: 30,
+                                        color: Colors.grey,
+                                      ),
+                                      textAlign: TextAlign.right),
+                                )
                               ],
                             ),
                           ),
                           SizedBox(
-                            width: sizeWidth * 0.65,
+                            width: sizeWidth * 0.7,
                             height: 1,
                             child: Container(
                               color: Colors.grey,

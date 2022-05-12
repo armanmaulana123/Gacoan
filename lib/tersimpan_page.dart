@@ -7,12 +7,15 @@ class tersimpan extends StatelessWidget {
     final sizeWidth = MediaQuery.of(context).size.width;
     return Scaffold(
         appBar: AppBar(
-          title: Text(
-            "Tersimpan",
-            style: TextStyle(
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-                fontFamily: "Poppins"),
+          automaticallyImplyLeading: false,
+          title: Center(
+            child: Text(
+              "Tersimpan",
+              style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: "Poppins"),
+            ),
           ),
           backgroundColor: Colors.white,
         ),

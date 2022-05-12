@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:gacoan/home.dart';
-import 'package:gacoan/order_page.dart';
+import 'package:gacoan/main.dart';
 import 'package:gacoan/profile_page.dart';
 import 'package:gacoan/riwayat_page.dart';
 import 'package:gacoan/tersimpan_page.dart';
@@ -16,7 +16,7 @@ class _BottomNavState extends State<BottomNav> {
   final List<Widget> body = [
     const home(),
     riwayat(),
-    order(),
+    pesanan(),
     tersimpan(),
     profile()
   ];

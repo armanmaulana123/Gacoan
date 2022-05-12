@@ -1,5 +1,6 @@
-import 'dart:html';
+// import 'dart:html';
 import 'package:flutter/material.dart';
+import 'package:gacoan/listMenu_page.dart';
 
 class home extends StatelessWidget {
   const home({Key? key}) : super(key: key);
@@ -23,7 +24,7 @@ class home extends StatelessWidget {
           width: sizeWidth * 0.1,
           height: sizeHeight * 0.1,
           child: CircleAvatar(
-            backgroundImage: AssetImage("assets/images/lluuu.jpg"),
+            child: ClipOval(child: Image.asset("assets/images/lluuu.jpg")),
           ),
         ),
       ),
@@ -49,9 +50,9 @@ class home extends StatelessWidget {
         MediaQuery.of(context).padding.top;
     return Scaffold(
       appBar: myAppBar,
-      body: Container(
-        height: bodyHeight,
-        width: sizeWidth,
+      body: SingleChildScrollView(
+        // height: bodyHeight,
+        // width: sizeWidth,
         padding:
             EdgeInsets.only(left: sizeWidth * 0.05, right: sizeWidth * 0.05),
         child: Column(
@@ -135,30 +136,36 @@ class home extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Container(
+                  width: sizeWidth * 0.25,
                   child: Text(
                     "Malang",
                     style: TextStyle(
                         color: Color(0xff3E4957),
                         fontFamily: "Poppins",
                         fontWeight: FontWeight.bold),
+                    textAlign: TextAlign.left,
                   ),
                 ),
                 Container(
+                  width: sizeWidth * 0.25,
                   child: Text(
                     "Semarang",
                     style: TextStyle(
                         color: Color(0xff3E4957),
                         fontFamily: "Poppins",
                         fontWeight: FontWeight.bold),
+                    textAlign: TextAlign.left,
                   ),
                 ),
                 Container(
+                  width: sizeWidth * 0.25,
                   child: Text(
                     "Cirebon",
                     style: TextStyle(
                         color: Color(0xff3E4957),
                         fontFamily: "Poppins",
                         fontWeight: FontWeight.bold),
+                    textAlign: TextAlign.left,
                   ),
                 ),
               ],
@@ -170,30 +177,36 @@ class home extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Container(
+                  width: sizeWidth * 0.25,
                   child: Text(
                     "Surabaya",
                     style: TextStyle(
                         color: Color(0xff3E4957),
                         fontFamily: "Poppins",
                         fontWeight: FontWeight.bold),
+                    textAlign: TextAlign.left,
                   ),
                 ),
                 Container(
+                  width: sizeWidth * 0.25,
                   child: Text(
                     "Solo",
                     style: TextStyle(
                         color: Color(0xff3E4957),
                         fontFamily: "Poppins",
                         fontWeight: FontWeight.bold),
+                    textAlign: TextAlign.left,
                   ),
                 ),
                 Container(
+                  width: sizeWidth * 0.25,
                   child: Text(
                     "Bali",
                     style: TextStyle(
                         color: Color(0xff3E4957),
                         fontFamily: "Poppins",
                         fontWeight: FontWeight.bold),
+                    textAlign: TextAlign.left,
                   ),
                 ),
               ],
@@ -205,30 +218,36 @@ class home extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 Container(
+                  width: sizeWidth * 0.25,
                   child: Text(
                     "Yogyakarta",
                     style: TextStyle(
                         color: Color(0xff3E4957),
                         fontFamily: "Poppins",
                         fontWeight: FontWeight.bold),
+                    textAlign: TextAlign.left,
                   ),
                 ),
                 Container(
+                  width: sizeWidth * 0.25,
                   child: Text(
                     "Bandung",
                     style: TextStyle(
                         color: Color(0xff3E4957),
                         fontFamily: "Poppins",
                         fontWeight: FontWeight.bold),
+                    textAlign: TextAlign.left,
                   ),
                 ),
                 Container(
+                  width: sizeWidth * 0.25,
                   child: Text(
                     "Jember",
                     style: TextStyle(
                         color: Color(0xff3E4957),
                         fontFamily: "Poppins",
                         fontWeight: FontWeight.bold),
+                    textAlign: TextAlign.left,
                   ),
                 ),
               ],
@@ -268,34 +287,41 @@ class home extends StatelessWidget {
             SizedBox(
               height: bodyHeight * 0.02,
             ),
-            Container(
-              width: sizeWidth * 0.88,
-              height: bodyHeight * 0.1,
-              decoration: BoxDecoration(
-                  color: Colors.black,
-                  borderRadius: BorderRadius.all(Radius.circular(20)),
-                  image: DecorationImage(
-                      image: AssetImage("assets/images/mie_iblis.jpg"),
-                      fit: BoxFit.cover,
-                      colorFilter: ColorFilter.mode(
-                          Colors.black.withOpacity(0.8), BlendMode.dstATop))),
-              child: Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Aneka Mie",
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontFamily: "Poppins",
-                          fontWeight: FontWeight.w800,
-                          fontSize: 14),
-                    ),
-                    Text(
-                      "Mie Angel - Mie Iblis - Mie Setan",
-                      style: TextStyle(color: Colors.white),
-                    )
-                  ],
+            InkWell(
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: ((context) {
+                  return listMenu();
+                })));
+              },
+              child: Container(
+                width: sizeWidth * 0.88,
+                height: bodyHeight * 0.1,
+                decoration: BoxDecoration(
+                    color: Colors.black,
+                    borderRadius: BorderRadius.all(Radius.circular(20)),
+                    image: DecorationImage(
+                        image: AssetImage("assets/images/mie_iblis.jpg"),
+                        fit: BoxFit.cover,
+                        colorFilter: ColorFilter.mode(
+                            Colors.black.withOpacity(0.8), BlendMode.dstATop))),
+                child: Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Aneka Mie",
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontFamily: "Poppins",
+                            fontWeight: FontWeight.w800,
+                            fontSize: 14),
+                      ),
+                      Text(
+                        "Mie Angel - Mie Iblis - Mie Setan",
+                        style: TextStyle(color: Colors.white),
+                      )
+                    ],
+                  ),
                 ),
               ),
             ),
