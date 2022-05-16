@@ -1,4 +1,6 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 class editProfile extends StatefulWidget {
   @override
@@ -6,6 +8,68 @@ class editProfile extends StatefulWidget {
 }
 
 class _editProfileState extends State<editProfile> {
+  File? image;
+
+  void _showSimpleDialog(context) {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return SimpleDialog(
+            children: [
+              Text(
+                "Buka Dengan",
+                style: TextStyle(fontSize: 18, color: Colors.black),
+                textAlign: TextAlign.center,
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pop(context, true);
+                  aksesCamera();
+                },
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Colors.white),
+                ),
+                child: Text("Kamera",
+                    style: TextStyle(
+                        fontFamily: "Poppins",
+                        fontSize: 12,
+                        color: Colors.black)),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pop(context, true);
+                  aksesGaleri();
+                },
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(Colors.white),
+                ),
+                child: Text("Galeri",
+                    style: TextStyle(
+                        fontFamily: "Poppins",
+                        fontSize: 12,
+                        color: Colors.black)),
+              )
+            ],
+          );
+        });
+  }
+
+  aksesCamera() async {
+    final ImagePicker _picker = ImagePicker();
+    final XFile? img = await _picker.pickImage(source: ImageSource.camera);
+
+    image = File(img!.path);
+    setState(() {});
+  }
+
+  aksesGaleri() async {
+    final ImagePicker _picker = ImagePicker();
+    final XFile? img = await _picker.pickImage(source: ImageSource.gallery);
+
+    image = File(img!.path);
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     final sizeHeight = MediaQuery.of(context).size.height;
@@ -21,7 +85,7 @@ class _editProfileState extends State<editProfile> {
           ),
           backgroundColor: Colors.white,
           leading: IconButton(
-            icon: Icon(Icons.arrow_back, color: Colors.black),
+            icon: Icon(Icons.arrow_back, color: Color(0xff00B3D8)),
             onPressed: () => Navigator.of(context).pop(),
           ),
         ),
@@ -44,19 +108,25 @@ class _editProfileState extends State<editProfile> {
                       width: sizeWidth * 0.25,
                       height: sizeHeight * 0.25,
                       child: CircleAvatar(
-                        child: ClipOval(
-                            child: Image.asset("assets/images/lluuu.jpg")),
-                      ),
+                          child: ClipOval(
+                              child: image == null
+                                  ? Image.asset("assets/images/lluuu.jpg")
+                                  : CircleAvatar(
+                                      radius: 50,
+                                      child: Image.file(
+                                        image!,
+                                      )))),
                     ),
-                    InkWell(
-                      child: Text(
-                        "Ubah Foto",
-                        style: TextStyle(
-                            fontFamily: "Poppins",
-                            fontSize: 18,
-                            fontWeight: FontWeight.w400,
-                            color: Color(0xffEC008D)),
-                      ),
+                    TextButton(
+                      onPressed: () {
+                        _showSimpleDialog(context);
+                      },
+                      child: Text("Ubah Foto",
+                          style: TextStyle(
+                              fontFamily: "Poppins",
+                              fontSize: 18,
+                              fontWeight: FontWeight.w400,
+                              color: Color(0xffEC008D))),
                     )
                   ],
                 ),
@@ -164,7 +234,7 @@ class _editProfileState extends State<editProfile> {
                       width: 10.0,
                       margin: EdgeInsets.only(left: 25),
                       child: TextField(
-                        decoration: InputDecoration(labelText: '********'),
+                        decoration: InputDecoration(labelText: '****'),
                       ),
                     )),
                   ],

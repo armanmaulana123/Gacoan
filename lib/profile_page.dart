@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gacoan/alamat_page.dart';
 import 'package:gacoan/editProfile_page.dart';
 import 'package:gacoan/login_page.dart';
 
@@ -183,7 +184,14 @@ class _profileState extends State<profile> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Container(
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(context,
+                                  MaterialPageRoute(builder: ((context) {
+                                return alamatPage();
+                              })));
+                            },
+
                             child: Row(
                               children: [
                                 Container(
