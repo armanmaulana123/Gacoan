@@ -7,14 +7,13 @@ class detailAlamatPage extends StatefulWidget {
 }
 
 class _detailAlamatPageState extends State<detailAlamatPage> {
-
   final Set<Marker> _markers = {};
-  final LatLng _currentPosition = LatLng(-7.8032076, 110.3573354);
+  final LatLng _currentPosition = LatLng(-8.170232, 113.714152);
 
   @override
   void initState() {
     _markers.add(Marker(
-        markerId: MarkerId('-7.8032076, 110.3573354'),
+        markerId: MarkerId('-8.170232, 113.714152'),
         position: _currentPosition,
         icon: BitmapDescriptor.defaultMarker));
     super.initState();
