@@ -5,6 +5,8 @@ import 'package:gacoan/main.dart';
 import 'package:gacoan/profile_page.dart';
 import 'package:gacoan/riwayat_page.dart';
 import 'package:gacoan/tersimpan_page.dart';
+import 'package:gacoan/tryAddPesanan.dart';
+import 'package:gacoan/tryPesanan.dart';
 
 class BottomNav extends StatefulWidget {
   @override
@@ -16,7 +18,7 @@ class _BottomNavState extends State<BottomNav> {
   final List<Widget> body = [
     const home(),
     riwayat(),
-    pesanan(),
+    pesanann(),
     tersimpan(),
     profile()
   ];

@@ -1,4 +1,7 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class detailAlamatPage extends StatefulWidget {
@@ -7,6 +10,32 @@ class detailAlamatPage extends StatefulWidget {
 }
 
 class _detailAlamatPageState extends State<detailAlamatPage> {
+  Completer<GoogleMapController> _controllerGoogleMap = Completer();
+  late GoogleMapController newGoogleMapController;
+
+  GlobalKey<ScaffoldState> scaffoldKey = new GlobalKey<ScaffoldState>();
+
+  late Position currentPosition;
+  var geolocator = Geolocator();
+
+  void locatePosition() async {
+    Position position = await Geolocator.getCurrentPosition(
+        desiredAccuracy: LocationAccuracy.high);
+    currentPosition = position;
+
+    LatLng latLatPosition = LatLng(position.latitude, position.longitude);
+
+    CameraPosition cameraPosition =
+        new CameraPosition(target: latLatPosition, zoom: 14);
+    newGoogleMapController
+        .animateCamera(CameraUpdate.newCameraPosition(cameraPosition));
+  }
+
+  static final CameraPosition _kGooglePlex = CameraPosition(
+    target: LatLng(-8.170232, 113.714152),
+    zoom: 14,
+  );
+
   final Set<Marker> _markers = {};
   final LatLng _currentPosition = LatLng(-8.170232, 113.714152);
 
@@ -39,8 +68,16 @@ class _detailAlamatPageState extends State<detailAlamatPage> {
         // body: Column(children: [Text(latitudeData), Text(longitudeData)]),
         body: GoogleMap(
           mapType: MapType.normal,
-          initialCameraPosition:
-              CameraPosition(target: _currentPosition, zoom: 14),
+          initialCameraPosition: _kGooglePlex,
+          myLocationEnabled: true,
+          zoomGesturesEnabled: true,
+          zoomControlsEnabled: true,
+          onMapCreated: (GoogleMapController controller) {
+            _controllerGoogleMap.complete(controller);
+            newGoogleMapController = controller;
+
+            locatePosition();
+          },
           markers: _markers,
         ));
   }

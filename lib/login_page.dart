@@ -1,5 +1,4 @@
-// import 'dart:html';
-
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:gacoan/bottom_nav.dart';
 import 'package:gacoan/register_page.dart';
@@ -129,11 +128,14 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   Container(
                     child: ElevatedButton(
-                      onPressed: () => submit(
-                        context,
-                        _emailController.text,
-                        _passwordController.text,
-                      ),
+                      onPressed: () {
+                        _doLogin();
+                      },
+                      // onPressed: () => submit(
+                      //   context,
+                      //   _emailController.text,
+                      //   _passwordController.text,
+                      // ),
                       // {
                       // Navigator.pushReplacement(context,
                       //     MaterialPageRoute(builder: (context) {
@@ -196,35 +198,76 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 
-  void submit(BuildContext context, String email, String password) {
-    if (email.isEmpty || password.isEmpty) {
-      final snackBar = SnackBar(
-        duration: const Duration(seconds: 5),
-        content: Text("Email dan Password harus diisi"),
-        backgroundColor: Colors.red,
+  _doLogin() async {
+    try {
+      var email = _emailController.text;
+      var passs = _passwordController.text;
+
+      print('sedang login');
+      var res = await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: email,
+        password: passs,
       );
 
+      print('Hasil Login : ');
+      print(res);
+
+      final snackBar = SnackBar(
+        duration: const Duration(seconds: 5),
+        content: Text("Berhasil Login"),
+        backgroundColor: Colors.green,
+      );
       ScaffoldMessenger.of(context).showSnackBar(snackBar);
-      return;
+
+      Navigator.push(context, MaterialPageRoute(builder: (_) {
+        return BottomNav();
+      }));
+    } catch (e) {
+      print('exception login');
+      print(e.runtimeType);
+      if (e is FirebaseAuthException) {
+        print(e);
+        print(e.message);
+      }
+
+      final snackBar = SnackBar(
+        duration: const Duration(seconds: 5),
+        content: Text("Email atau Password Salah"),
+        backgroundColor: Colors.red,
+      );
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
     }
-
-    AlertDialog alert = AlertDialog(
-      title: Text("Login Berhasil"),
-      content: Container(
-        child: Text("Selamat Anda Berhasil Login"),
-      ),
-      actions: [
-        TextButton(
-            child: Text("Ok"),
-            onPressed: () {
-              Navigator.pushReplacement(context,
-                  MaterialPageRoute(builder: (context) {
-                return BottomNav();
-              }));
-            })
-      ],
-    );
-
-    showDialog(context: context, builder: (context) => alert);
   }
+
+  // void submit(BuildContext context, String email, String password) {
+  //   if (email.isEmpty || password.isEmpty) {
+  //     final snackBar = SnackBar(
+  //       duration: const Duration(seconds: 5),
+  //       content: Text("Email dan Password harus diisi"),
+  //       backgroundColor: Colors.red,
+  //     );
+
+  //     ScaffoldMessenger.of(context).showSnackBar(snackBar);
+  //     return;
+  //   }
+
+  //   AlertDialog alert = AlertDialog(
+  //     title: Text("Login Berhasil"),
+  //     content: Container(
+  //       child: Text("Selamat Anda Berhasil Login"),
+  //     ),
+  //     actions: [
+  //       TextButton(
+  //           child: Text("Ok"),
+  //           onPressed: () {
+  //             Navigator.pushReplacement(context,
+  //                 MaterialPageRoute(builder: (context) {
+  //               return BottomNav();
+  //             }));
+  //           })
+  //     ],
+  //   );
+
+  //   showDialog(context: context, builder: (context) => alert);
+  // }
 }

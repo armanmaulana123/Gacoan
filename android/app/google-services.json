@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "720325752470",
+    "project_id": "gacoan-1f7e1",
+    "storage_bucket": "gacoan-1f7e1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:720325752470:android:1c25341b884750afb074b7",
+        "android_client_info": {
+          "package_name": "com.example.gacoan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "720325752470-pbfq8mi6kcpepgab4icqfm09b05d2kor.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRvvrjIvBJceweHt_aPP5iFOyLG3LUju0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "720325752470-pbfq8mi6kcpepgab4icqfm09b05d2kor.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

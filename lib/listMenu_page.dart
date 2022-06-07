@@ -12,7 +12,17 @@ class _listMenuState extends State<listMenu> {
     final sizeWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
-        title: Text("Gtau aku bingung mann"),
+        automaticallyImplyLeading: false,
+        title: Center(
+          child: Text(
+            "Pesanan",
+            style: TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+                fontFamily: "Poppins"),
+          ),
+        ),
+        backgroundColor: Colors.white,
       ),
       body: SingleChildScrollView(
         child: Column(

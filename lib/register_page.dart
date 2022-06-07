@@ -1,5 +1,5 @@
-// import 'dart:html';
-
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:gacoan/login_page.dart';
 
@@ -9,6 +9,16 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
+  TextEditingController _emailController = TextEditingController();
+  TextEditingController _passwordController = TextEditingController();
+
+  var nama = '';
+  var email = '';
+  var telepon = '';
+  var pass = '';
+
+  var formkey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     final sizeHeight = MediaQuery.of(context).size.height;
@@ -84,6 +94,9 @@ class _RegisterPageState extends State<RegisterPage> {
                         fillColor: Colors.white,
                         filled: true,
                       ),
+                      onChanged: (v) {
+                        nama = v;
+                      },
                     ),
                   ),
                   Container(
@@ -97,7 +110,8 @@ class _RegisterPageState extends State<RegisterPage> {
                     ),
                   ),
                   Container(
-                    child: TextField(
+                    child: TextFormField(
+                      controller: _emailController,
                       style: TextStyle(height: sizeHeight * 0.0005),
                       showCursor: false,
                       decoration: InputDecoration(
@@ -113,6 +127,9 @@ class _RegisterPageState extends State<RegisterPage> {
                         fillColor: Colors.white,
                         filled: true,
                       ),
+                      onChanged: (v) {
+                        email = v;
+                      },
                     ),
                   ),
                   Container(
@@ -142,6 +159,9 @@ class _RegisterPageState extends State<RegisterPage> {
                         fillColor: Colors.white,
                         filled: true,
                       ),
+                      onChanged: (v) {
+                        telepon = v;
+                      },
                     ),
                   ),
                   Container(
@@ -156,6 +176,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   ),
                   Container(
                     child: TextField(
+                      controller: _passwordController,
                       style: TextStyle(height: sizeHeight * 0.0005),
                       showCursor: false,
                       decoration: InputDecoration(
@@ -171,6 +192,9 @@ class _RegisterPageState extends State<RegisterPage> {
                         fillColor: Colors.white,
                         filled: true,
                       ),
+                      onChanged: (v) {
+                        pass = v;
+                      },
                     ),
                   ),
                   SizedBox(
@@ -178,7 +202,19 @@ class _RegisterPageState extends State<RegisterPage> {
                   ),
                   Container(
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () async {
+                        var collection =
+                            FirebaseFirestore.instance.collection('akun');
+                        var res = await collection.add({
+                          'nama': nama,
+                          'email': email,
+                          'telepon': telepon,
+                          'password': pass
+                        });
+
+                        print(res);
+                        _doSignUp();
+                      },
                       child: Text(
                         "Daftar",
                         style: TextStyle(color: Color(0xff00B3D8)),
@@ -232,5 +268,46 @@ class _RegisterPageState extends State<RegisterPage> {
         ),
       ),
     );
+  }
+
+  _doSignUp() async {
+    try {
+      var email = _emailController.text;
+      var passs = _passwordController.text;
+
+      print('sedang daftar');
+      var res = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: email,
+        password: passs,
+      );
+
+      print('Hasil Daftar : ');
+      print(res);
+
+      final snackBar = SnackBar(
+        duration: const Duration(seconds: 5),
+        content: Text("Registrasi Berhasil, Silakan Login"),
+        backgroundColor: Colors.green,
+      );
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+
+      Navigator.push(context, MaterialPageRoute(builder: (_) {
+        return LoginPage();
+      }));
+    } catch (e) {
+      print('exception daftar');
+      print(e.runtimeType);
+      if (e is FirebaseAuthException) {
+        print(e);
+        print(e.message);
+      }
+
+      final snackBar = SnackBar(
+        duration: const Duration(seconds: 5),
+        content: Text("Email atau Password Salah"),
+        backgroundColor: Colors.red,
+      );
+      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+    }
   }
 }

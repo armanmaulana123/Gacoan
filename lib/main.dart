@@ -1,14 +1,14 @@
 // import 'dart:html';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:gacoan/bottom_nav.dart';
-import 'package:gacoan/editProfile_page.dart';
 import 'package:gacoan/first_page.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:gacoan/listMenu_page.dart';
-import 'package:gacoan/profile_page.dart';
 
-void main() {
-  return runApp(myApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp(myApp());
 }
 
 class myApp extends StatelessWidget {
