@@ -46,22 +46,39 @@ class _pesanannState extends State<pesanann> {
         body: Container(
             child: Column(
           children: [
-            Text("Daftar Pesanan"),
-            ElevatedButton(
-                onPressed: () {
-                  getData();
-                },
-                child: Text("Refresh")),
-            Expanded(child: ListView.builder(itemBuilder: (_, int index) {
-              var item = list_item[index];
-              return ListTile(
-                title: Text(item['nama']),
-                subtitle: Text(item['harga']),
-              );
-            })),
+            Container(
+                width: sizeWidth * 0.9,
+                margin: EdgeInsets.only(top: 35),
+                child: Text(
+                  "Daftar Pesanan",
+                  style: TextStyle(
+                      fontFamily: "Poppins",
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold),
+                  textAlign: TextAlign.start,
+                )),
+            Expanded(
+                child: ListView.builder(
+                    itemCount: list_item.length,
+                    itemBuilder: (_, int index) {
+                      var item = list_item[index];
+                      return ListTile(
+                        title: Text(item['nama']),
+                        subtitle: Text(item['harga']),
+                      );
+                    })),
             Container(
               width: sizeWidth * 0.8,
-              margin: EdgeInsets.only(top: 55),
+              margin: EdgeInsets.only(top: 35),
+              child: ElevatedButton(
+                  onPressed: () {
+                    getData();
+                  },
+                  child: Text("Refresh Data")),
+            ),
+            Container(
+              width: sizeWidth * 0.8,
+              margin: EdgeInsets.only(top: 10),
               child: ElevatedButton(
                   onPressed: () {
                     Navigator.push(context,
