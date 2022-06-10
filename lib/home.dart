@@ -85,7 +85,10 @@ class home extends StatelessWidget {
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(8.0))),
                 child: InkWell(
-                  // onTap: () => print("ciao"),
+                  onTap: () {Navigator.push(context,
+                        MaterialPageRoute(builder: ((context) {
+                      return voucher();
+                    })));} ,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch, // add this
                     children: <Widget>[

@@ -241,7 +241,13 @@ class _profileState extends State<profile> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Container(
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(context,
+                                  MaterialPageRoute(builder: ((context) {
+                                return voucher();
+                              })));
+                            },
                             child: Row(
                               children: [
                                 Container(
