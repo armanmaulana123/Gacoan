@@ -12,6 +12,7 @@ class _pesanannState extends State<pesanann> {
 
   void initState() {
     super.initState();
+    getData();
   }
 
   getData() {
@@ -41,6 +42,19 @@ class _pesanannState extends State<pesanann> {
                   fontFamily: "Poppins"),
             ),
           ),
+          actions: [
+            IconButton(
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: ((context) {
+                    return addPesanan();
+                  })));
+                },
+                icon: Icon(
+                  Icons.add,
+                  color: Color(0xff00B3D8),
+                ))
+          ],
           backgroundColor: Colors.white,
         ),
         body: Container(
@@ -67,27 +81,6 @@ class _pesanannState extends State<pesanann> {
                         subtitle: Text(item['harga']),
                       );
                     })),
-            Container(
-              width: sizeWidth * 0.8,
-              margin: EdgeInsets.only(top: 35),
-              child: ElevatedButton(
-                  onPressed: () {
-                    getData();
-                  },
-                  child: Text("Refresh Data")),
-            ),
-            Container(
-              width: sizeWidth * 0.8,
-              margin: EdgeInsets.only(top: 10),
-              child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: ((context) {
-                      return addPesanan();
-                    })));
-                  },
-                  child: Text("Tambah Pesanan")),
-            ),
           ],
         )));
   }

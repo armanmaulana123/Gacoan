@@ -11,6 +11,7 @@ class _voucherState extends State<voucher> {
 
   void initState() {
     super.initState();
+    getDataVoucher();
   }
 
   getDataVoucher() {
@@ -46,13 +47,6 @@ class _voucherState extends State<voucher> {
           icon: Icon(Icons.arrow_back, color: Color(0xff00B3D8)),
           onPressed: () => Navigator.of(context).pop(),
         ),
-        actions: [
-          IconButton(
-              onPressed: () {
-                getDataVoucher();
-              },
-              icon: Icon(Icons.refresh_sharp, color: Color(0xff00B3D8)))
-        ],
       ),
       body: Column(
         mainAxisSize: MainAxisSize.max,
