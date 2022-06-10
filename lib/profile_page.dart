@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gacoan/alamat_page.dart';
 import 'package:gacoan/editProfile_page.dart';
 import 'package:gacoan/login_page.dart';
+import 'package:gacoan/voucher_page.dart';
 
 class profile extends StatefulWidget {
   @override
@@ -191,7 +192,6 @@ class _profileState extends State<profile> {
                                 return alamatPage();
                               })));
                             },
-
                             child: Row(
                               children: [
                                 Container(
